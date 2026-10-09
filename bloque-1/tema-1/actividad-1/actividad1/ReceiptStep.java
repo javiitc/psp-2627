@@ -2,6 +2,7 @@ package actividad1;
 
 public class ReceiptStep {
 
-    Container container;
-    Ingredient  ingredient;
+    private Container container;
+    private Ingredient ingredient;
+
 }

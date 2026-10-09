@@ -2,6 +2,6 @@ package actividad1;
 
 public class Chef {
 
-    String name;
+    private String name;
 
 }
