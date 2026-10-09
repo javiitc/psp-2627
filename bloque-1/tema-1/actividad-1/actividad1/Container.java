@@ -25,9 +25,10 @@ public class Container {
     public List<Ingredient> getIngredients() { return new ArrayList<>(ingredients); }
 
     public void addIngredient(Ingredient ingredient) {
-        ingredients.add(ingredient); }
+        ingredients.add(ingredient);
     }
 
-    public void empty(ArrayList ingredients) {
+    public void empty() {
         ingredients.clear();
     }
+}
