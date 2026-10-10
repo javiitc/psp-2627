@@ -24,7 +24,7 @@ public class Chef {
 
         long elapsedMillis = System.currentTimeMillis() - startTimer;
 
-        System.out.println("[" + LocalTime.now().withNano(0) + "] " + name + " termina: " + step.getDescription() + " (" + elapsedMillis + " ms)");
+        System.out.println("[" + LocalTime.now().withNano(0) + "] " + name + " termina: " + step.getDescription() + " (" + elapsedMillis / 1000.0 + " s)");
         System.out.println("    Estado: " + step.getContainer());
         System.out.println();
 

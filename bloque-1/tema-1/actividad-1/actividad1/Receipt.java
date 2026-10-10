@@ -34,6 +34,6 @@ public class Receipt {
         long totalMillis = System.currentTimeMillis() - startMillis;
 
         System.out.println("===== Receta terminada =====");
-        System.out.println("Tiempo total: " + totalMillis + " ms (" + totalMillis / 1000.0 + " s)");
+        System.out.println("Tiempo total: " + totalMillis / 1000.0 + " s");
     }
 }
