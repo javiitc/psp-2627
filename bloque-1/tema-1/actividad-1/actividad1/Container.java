@@ -31,4 +31,9 @@ public class Container {
     public void empty() {
         ingredients.clear();
     }
+
+    @Override
+    public String toString() {
+        return containerName + " " + ingredients;
+    }
 }
