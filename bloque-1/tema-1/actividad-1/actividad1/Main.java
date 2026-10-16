@@ -13,7 +13,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Random random = new Random();
 
         Ingredient pasta = new Ingredient("Pasta", 500, "g");
         Ingredient carnePicada = new Ingredient("Carne Picada", 500, "g");
