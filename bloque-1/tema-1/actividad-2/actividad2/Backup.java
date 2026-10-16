@@ -13,7 +13,7 @@ public class Backup implements Runnable {
     public void run() {
         System.out.println(nombreEmpleado + " se encargará de realizar copias de seguridad");
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Haciendo copia de seguridad de la carpeta " + i + "...");
+            System.out.println("[" + nombreEmpleado + "]" + " Haciendo copia de seguridad de la carpeta " + i + "...");
             try {
                 Thread.sleep(milisegundos);
                 System.out.println("Copia de seguridad finalizada");

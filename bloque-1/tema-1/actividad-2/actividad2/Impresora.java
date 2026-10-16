@@ -13,7 +13,7 @@ public class Impresora implements Runnable {
     public void run() {
         System.out.println(nombreEmpleado + " se encargará de imprimir todos los documentos");
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Imprimiendo el documento " + i + "...");
+            System.out.println("[" + nombreEmpleado + "]" + " Imprimiendo el documento " + i + "...");
             try {
                 Thread.sleep(milisegundos);
                 System.out.println("Documento " + i + " impreso");

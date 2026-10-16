@@ -12,7 +12,7 @@ public class Correo implements Runnable {
     public void run() {
         System.out.println(nombreEmpleado + " se encargará de responder todos los correos pendientes");
         for (int i = 1; i <= 5; i++) {
-            System.out.println("Respondiendo correo " + i + "...");
+            System.out.println("[" + nombreEmpleado + "]"+ " Respondiendo correo " + i + "...");
             try {
                 Thread.sleep(milisegundos);
                 System.out.println("Mensaje enviado");
