@@ -1,4 +1,4 @@
-package actividad4;
+package actividad4.notifyAll;
 
 public class Main {
     public static void main(String[] args) {
