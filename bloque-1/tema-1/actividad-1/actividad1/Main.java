@@ -1,48 +1,46 @@
 package actividad1;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
+
+    private static final Random random = new Random();
+
+    private static long randomDuration(int minSeconds, int maxSeconds) {
+        int seconds = minSeconds + random.nextInt(maxSeconds - minSeconds + 1);
+        return seconds * 1000L;
+    }
+
     public static void main(String[] args) {
-        Cocinero cocinero = new Cocinero("Josue");
 
-        Container pot = new Container("la olla");
-        Container pan = new Container("la sarten");
+        Ingredient pasta = new Ingredient("Pasta", 500, "g");
+        Ingredient carnePicada = new Ingredient("Carne Picada", 500, "g");
+        Ingredient tomate = new Ingredient("Salsa de Tomate", 200, "ml");
+        Ingredient aceite = new Ingredient("Aceite", 20, "ml");
+        Ingredient agua = new Ingredient("Agua", 2, "L");
+        Ingredient cebolla = new Ingredient("Cebolla", 200, "g");
+        Ingredient ajo = new Ingredient("Ajo", 15, "g");
+        Ingredient sal = new Ingredient("Sal", 30, "g");
 
-        Ingredient water = new Ingredient("agua", 1, "L");
-        Ingredient salt = new Ingredient("sal", 10, "mg");
-        Ingredient spaguetis = new Ingredient("espaguetis", 1, "kg");
-        Ingredient onion = new Ingredient("cebolla", 1, "u");
-        Ingredient garlic = new Ingredient("ajo", 4, "u");
-        Ingredient meet = new Ingredient("carne", 500, "g");
-        Ingredient tomato = new Ingredient("tomate", 350, "g");
+        Container pot = new Container("Olla");
+        Container pan = new Container("Sartén");
+        Container colander = new Container("Escurridor");
+        Container plate = new Container("Plato");
 
-        ReceiptStep step1 = new ReceiptStep(
-                "Poner agua a hervir en la olla",
-                pot,
-                Arrays.asList(water, salt)
-        );
-        ReceiptStep step2 = new ReceiptStep(
-                "Cocer los espaguetis en la olla",
-                pot,
-                List.of(spaguetis)
-        );
-        ReceiptStep step3 = new ReceiptStep(
-                "Sofreir la cebolla y el ajo en la sartén con aceite",
-                pan,
-                Arrays.asList(onion, garlic)
-        );
+        Chef chef = new Chef("KokaLoka");
 
-        Receipt receipt = new Receipt(
-                "Espaguetis a la boloñesa",
-                Arrays.asList(
-                        step1,
-                        step2,
-                        step3
-                )
-        );
+        Receipt receipt = new Receipt("Espaguetis a la boloñesa");
 
-        receipt.preparar(cocinero);
+        receipt.addStep(new ReceiptStep("Poner agua a hervir", pot, List.of(agua, sal), randomDuration(3, 6)));
+        receipt.addStep(new ReceiptStep("Cocer los espaguetis", pot, List.of(pasta), randomDuration(4, 7)));
+        receipt.addStep(new ReceiptStep("Sofreír la cebolla y el ajo", pan, List.of(aceite, cebolla, ajo), randomDuration(2, 4)));
+        receipt.addStep(new ReceiptStep("Añadir la carne picada y dorarla", pan, List.of(carnePicada), randomDuration(3, 5)));
+        receipt.addStep(new ReceiptStep("Añadir el tomate y reducir la salsa", pan, List.of(tomate), randomDuration(3, 5)));
+        receipt.addStep(new ReceiptStep("Escurrir la pasta", colander, pot, List.of(pasta), randomDuration(1, 2)));
+        receipt.addStep(new ReceiptStep("Mezclar la pasta con la salsa", pan, colander, List.of(pasta), randomDuration(1, 3)));
+        receipt.addStep(new ReceiptStep("Emplatar", plate, pan, List.of(pasta, aceite, cebolla, ajo, carnePicada, tomate), randomDuration(1, 2)));
+
+        receipt.executeReceipt(chef);
     }
 }

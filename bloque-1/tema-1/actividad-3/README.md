@@ -7,7 +7,7 @@
 
 Varios hilos pueden **pisar la misma variable** a la vez. Sin protección, el resultado es incorrecto (condición de carrera). Con un Lock o `synchronized`, solo un hilo actualiza a la vez.
 
-Vas a simular el **aforo** de una sala: varias personas entran muchas veces y todas suman al mismo contador.
+Vas a simular el **aforoSincronizado** de una sala: varias personas entran muchas veces y todas suman al mismo contador.
 
 ## Objetivo
 

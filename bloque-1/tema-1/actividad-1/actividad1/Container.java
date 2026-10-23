@@ -4,41 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Container {
-    private final String name;
 
-    private ContainerStatus status;
+    private String containerName;
+    public enum Status {EMPTY, IN_PROGRESS, COMPLETED};
+    private Status status;
+    private ArrayList <Ingredient> ingredients;
 
-    private final List<Ingredient> ingredients;
-
-
-    public Container(String name) {
-        this.name = name;
-        this.status = ContainerStatus.EMPTY;
+    public Container(String containerName) {
+        this.containerName = containerName;
+        this.status = Status.EMPTY;
         this.ingredients = new ArrayList<>();
     }
 
-    public void startUsing() {
-        this.status = ContainerStatus.IN_USE;
+    public String getContainerName() { return containerName; }
+    public void setContainerName(String containerName) { this.containerName = containerName; }
+
+    public Status getStatus() { return status; }
+    public void setStatus(Status status) { this.status = status; }
+
+    public List<Ingredient> getIngredients() { return new ArrayList<>(ingredients); }
+
+    public void addIngredient(Ingredient ingredient) {
+        ingredients.add(ingredient);
     }
 
-    public void doneUsing() {
-        this.status = ContainerStatus.DONE;
-    }
-
-    public void addIngredients(List<Ingredient> ingredients) {
-        this.ingredients.addAll(ingredients);
+    public void empty() {
+        ingredients.clear();
     }
 
     @Override
     public String toString() {
-        StringBuilder ingredients = new StringBuilder();
-        for(Ingredient ingredient : this.ingredients) {
-            ingredients.append(ingredient.toString()).append(",");
-        }
-        return this.name + " está " + this.status.toString() + " y los ingredientes: " + ingredients;
-    }
-
-    public String getName() {
-        return name;
+        return containerName + " " + ingredients;
     }
 }

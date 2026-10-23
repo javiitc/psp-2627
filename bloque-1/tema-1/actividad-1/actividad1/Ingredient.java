@@ -1,21 +1,31 @@
 package actividad1;
 
 public class Ingredient {
-    private String name;
 
-    private Integer quantity;
+    private String ingredientName;
+    private int quantity;
+    private String unit;
 
-    private String unity;
-
-
-    public Ingredient(String name, Integer quantity, String unity) {
-        this.name = name;
+    public Ingredient(String ingredientName, int quantity, String unit) {
+        this.ingredientName = ingredientName;
         this.quantity = quantity;
-        this.unity = unity;
+        this.unit = unit;
+    }
+
+    public String getIngredientName() {
+        return ingredientName;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public String getUnit() {
+        return unit;
     }
 
     @Override
     public String toString() {
-        return this.name + " " + this.quantity + " " + this.unity;
+        return quantity + "" + unit + " de " + ingredientName;
     }
 }
